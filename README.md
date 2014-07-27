@@ -7,15 +7,21 @@ valid8 is a Javascript data validator for use with user input from web forms, AP
 ## Requirements
 
 - [Node.js][]
-- [nodeunit][]
+- [mocha][] (To run tests)
 
 [Node.js]: http://nodejs.org/
-[nodeunit]: https://github.com/caolan/nodeunit
+[mocha]: http://visionmedia.github.io/mocha/
 
 ## Installation
 
 ```sh
 npm install valid8
+```
+
+## Run Tests
+
+```sh
+mocha
 ```
 
 ## Usage
