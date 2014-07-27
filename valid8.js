@@ -30,7 +30,7 @@ var Valid8 = function (type, fields) {
         throw 'Invalid fields: ' + fields;
       }
 
-      var valid = true, type, name, field;
+      var type, name, field;
 
       for (name in fields) {
         if (fields.hasOwnProperty(name)) {
@@ -43,7 +43,7 @@ var Valid8 = function (type, fields) {
           type = typeof field === 'string' ? field : field.type;
 
           if (!type || typeof this.fieldTypes[type] !== 'string') {
-            throw 'Invalid field type: ' + field.type;
+            throw 'Invalid field type: ' + type;
           }
         }
       }
