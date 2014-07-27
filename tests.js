@@ -1,4 +1,4 @@
-var Valid8 = require('../valid8');
+var Valid8 = require('./valid8');
 
 exports.tests = {
 
