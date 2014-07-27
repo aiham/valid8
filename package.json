@@ -1,6 +1,6 @@
 {
   "name": "valid8",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Javascript data validator for use with user input from web forms, APIs, etc.",
   "main": "valid8.js",
   "scripts": {
