@@ -4,7 +4,7 @@ exports.tests = {
 
   init: function (test) {
 
-    test.expect(6);
+    test.expect(10);
 
     var valid8;
   
@@ -14,21 +14,22 @@ exports.tests = {
   
     test.doesNotThrow(function () {
       valid8 = new Valid8(Valid8.testTypes.form);
+      test.strictEqual(valid8.type, Valid8.testTypes.form);
     });
-    test.strictEqual(valid8.type, Valid8.testTypes.form);
   
     test.doesNotThrow(function () {
       valid8 = new Valid8(Valid8.testTypes.form, {});
+      test.strictEqual(valid8.type, Valid8.testTypes.form);
     });
-    test.strictEqual(valid8.type, Valid8.testTypes.form);
   
     test.doesNotThrow(function () {
       valid8 = new Valid8('form', {});
+      test.strictEqual(valid8.type, Valid8.testTypes.form);
     });
-    test.strictEqual(valid8.type, Valid8.testTypes.form);
   
     test.doesNotThrow(function () {
       valid8 = new Valid8(null, {});
+      test.strictEqual(valid8.type, Valid8.testTypes.strict);
     });
   
     test.throws(function () {
