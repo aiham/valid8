@@ -161,14 +161,18 @@ Valid8.prototype = {
 
   areFieldsValid: function (values, fieldWhiteList) {
 
-    var result = true, name, fieldResult;
+    var fields = this.fields, result = true, name, fieldResult;
 
-    if (!fieldWhiteList) {
-      fieldWhiteList = [];
+    if (fieldWhiteList) {
+      fields = {};
+      for (var i = 0, l = fieldWhiteList.length; i < l; i++) {
+        name = fieldWhiteList[i];
+        fields[name] = this.fields[name];
+      }
     }
 
-    for (name in this.fields) {
-      if (this.fields.hasOwnProperty(name)) {
+    for (name in fields) {
+      if (fields.hasOwnProperty(name)) {
         fieldResult = this.isFieldValid(name, values[name]);
         if (fieldResult !== true) {
           if (result === true) {
