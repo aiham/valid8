@@ -12,7 +12,9 @@
   },
   "keywords": [
     "data",
-    "validate"
+    "validate",
+    "validation",
+    "validator"
   ],
   "author": "Aiham Hammami <aiham@aiham.net> (http://www.aiham.net/)",
   "license": "MIT",
