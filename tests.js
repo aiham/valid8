@@ -42,21 +42,25 @@ exports.tests = {
 
   setters: function (test) {
 
-    test.expect(3);
+    test.expect(4);
 
     var valid8 = new Valid8();
 
     test.throws(function () {
-      valid8.setTestType();
-    }, /^Missing type argument/);
-
-    test.throws(function () {
-      valid8.setTestType('foo');
+      valid8.type = null;
     }, /^Invalid test type/);
 
     test.throws(function () {
-      valid8.setFields();
-    }, /^Missing fields argument/);
+      valid8.type = 'foo';
+    }, /^Invalid test type/);
+
+    test.throws(function () {
+      valid8.fields = null;
+    }, /^Invalid fields/);
+
+    test.throws(function () {
+      valid8.fields = 'foo';
+    }, /^Invalid fields/);
 
     test.done();
 
@@ -90,7 +94,7 @@ exports.tests = {
 
     test.throws(function () {
       valid8.isFieldValid();
-    }, /^Missing name argument/);
+    }, /^Invalid field name/);
 
     test.throws(function () {
       valid8.isFieldValid('foo');
