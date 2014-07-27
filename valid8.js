@@ -57,6 +57,7 @@ Valid8.prototype = {
 
     var isForm = this.type === this.testTypes.form;
 
+    if (!name) throw 'Missing name argument';
     if (!this.fields.hasOwnProperty(name)) throw 'Invalid field name: ' + name;
 
     var field = this.fields[name];
