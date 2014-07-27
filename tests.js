@@ -4,7 +4,7 @@ exports.tests = {
 
   init: function (test) {
 
-    test.expect(10);
+    test.expect(11);
 
     var valid8;
   
@@ -35,6 +35,10 @@ exports.tests = {
     test.throws(function () {
       valid8 = new Valid8('foo', {});
     }, /^Invalid test type/);
+
+    test.throws(function () {
+      valid8 = new Valid8('form', {name: 'foo'});
+    }, /^Invalid field type/);
   
     test.done();
 
@@ -42,7 +46,7 @@ exports.tests = {
 
   setters: function (test) {
 
-    test.expect(4);
+    test.expect(6);
 
     var valid8 = new Valid8();
 
@@ -62,13 +66,21 @@ exports.tests = {
       valid8.fields = 'foo';
     }, /^Invalid fields/);
 
+    test.throws(function () {
+      valid8.fields = {name: 'foo'};
+    }, /^Invalid field type/);
+
+    test.throws(function () {
+      valid8.fields = {name: null};
+    }, /^Invalid field definition/);
+
     test.done();
 
   },
 
   strings: function (test) {
 
-    test.expect(15);
+    test.expect(13);
 
     var valid8;
 
@@ -107,14 +119,6 @@ exports.tests = {
       test.strictEqual(valid8.isFieldValid('name', 'Aiham'), true);
       test.strictEqual(valid8.isFieldValid('name', 1), Valid8.errors.dataType);
     });
-
-    test.doesNotThrow(function () {
-      valid8 = new Valid8('form', {name: 'foo'});
-    });
-
-    test.throws(function () {
-      valid8.isFieldValid('name', 'Aiham');
-    }, /^Invalid field type/);
 
     test.done();
 

@@ -29,6 +29,24 @@ var Valid8 = function (type, fields) {
       if (!fields || typeof fields !== 'object') {
         throw 'Invalid fields: ' + fields;
       }
+
+      var valid = true, type, name, field;
+
+      for (name in fields) {
+        if (fields.hasOwnProperty(name)) {
+          field = fields[name];
+
+          if (!field) {
+            throw 'Invalid field definition';
+          }
+
+          type = typeof field === 'string' ? field : field.type;
+
+          if (!type || typeof this.fieldTypes[type] !== 'string') {
+            throw 'Invalid field type: ' + field.type;
+          }
+        }
+      }
       _fields = fields;
 
     }
