@@ -1,7 +1,41 @@
 var Valid8 = function (type, fields) {
 
-  this.setTestType(type || this.testTypes.strict);
-  this.setFields(fields || {});
+  var _type, _fields;
+
+  Object.defineProperty(this, 'type', {
+    get: function () {
+
+      return _type;
+
+    },
+    set: function (type) {
+
+      if (!type || typeof this.testTypes[type] !== 'string') {
+        throw 'Invalid test type: ' + type;
+      }
+      _type = type;
+
+    }
+  });
+
+  Object.defineProperty(this, 'fields', {
+    get: function () {
+
+      return _fields;
+
+    },
+    set: function (fields) {
+
+      if (!fields || typeof fields !== 'object') {
+        throw 'Invalid fields: ' + fields;
+      }
+      _fields = fields;
+
+    }
+  });
+
+  this.type = type || this.testTypes.strict;
+  this.fields = fields || {};
 
 };
 
@@ -37,21 +71,6 @@ Valid8.prototype = {
   testTypes: Valid8.testTypes,
   fieldTypes: Valid8.fieldTypes,
   errors: Valid8.errors,
-
-  setTestType: function (type) {
-
-    if (!type) throw 'Missing type argument';
-    if (typeof this.testTypes[type] !== 'string') throw 'Invalid test type: ' + type;
-    this.type = type;
-
-  },
-
-  setFields: function (fields) {
-
-    if (!fields) throw 'Missing fields argument';
-    this.fields = fields;
-
-  },
 
   isFieldValid: function (name, value) {
 
