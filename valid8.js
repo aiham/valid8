@@ -1,10 +1,7 @@
 var Valid8 = function (type, fields) {
 
-  if (!type || !fields) throw 'Missing arguments in Valid8()';
-  if (typeof this.testTypes[type] !== 'string') throw 'Invalid test type: ' + type;
-
-  this.type = type;
-  this.fields = fields;
+  this.setTestType(type || this.testTypes.strict);
+  this.setFields(fields || {});
 
 };
 
@@ -40,6 +37,21 @@ Valid8.prototype = {
   testTypes: Valid8.testTypes,
   fieldTypes: Valid8.fieldTypes,
   errors: Valid8.errors,
+
+  setTestType: function (type) {
+
+    if (!type) throw 'Missing type argument';
+    if (typeof this.testTypes[type] !== 'string') throw 'Invalid test type: ' + type;
+    this.type = type;
+
+  },
+
+  setFields: function (fields) {
+
+    if (!fields) throw 'Missing fields argument';
+    this.fields = fields;
+
+  },
 
   isFieldValid: function (name, value) {
 
