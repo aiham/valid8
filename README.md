@@ -48,6 +48,10 @@ var valid8 = new Valid8('form', {
   gender: {
     type: 'enum',
     options: ['male', 'female']
+  },
+  country: {
+    type: 'string',
+    required: true
   }
 });
 
@@ -66,7 +70,8 @@ var result = valid8.areFieldsValid({
     username: 'long',
     email: 'format',
     age: 'small',
-    gender: 'option'
+    gender: 'option',
+    country: 'missing'
   }
 
 */
