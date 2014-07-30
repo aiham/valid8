@@ -1,6 +1,6 @@
 # valid8
 
-[![NPM version](https://badge.fury.io/js/valid8.svg)](http://badge.fury.io/js/valid8)
+[![NPM version](https://badge.fury.io/js/valid8.svg)](http://badge.fury.io/js/valid8) [![Travis-CI](https://travis-ci.org/aiham/valid8.svg?branch=master)](https://travis-ci.org/aiham/valid8)
 
 valid8 is a Javascript data validator for use with user input from web forms, APIs, etc.
 
@@ -21,7 +21,7 @@ npm install valid8
 ## Run Tests
 
 ```sh
-mocha
+npm test
 ```
 
 ## Usage
