@@ -4,7 +4,7 @@
   "description": "Javascript data validator for use with user input from web forms, APIs, etc.",
   "main": "valid8.js",
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,9 @@
     "validation",
     "validator"
   ],
+  "devDependencies": {
+    "mocha": "~1.21.3"
+  },
   "author": "Aiham Hammami <aiham@aiham.net> (http://www.aiham.net/)",
   "license": "MIT",
   "bugs": {
