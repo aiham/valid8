@@ -117,4 +117,46 @@ describe('Valid8', function () {
 
     });
   });
+
+  describe('integers', function () {
+    it('should validate integer fields', function () {
+
+      var valid8;
+
+      assert.doesNotThrow(function () {
+        valid8 = new Valid8('form', {age: Valid8.fieldTypes.int});
+      });
+
+      assert.doesNotThrow(function () {
+        valid8 = new Valid8('form', {age: 'int'});
+      });
+
+      assert.doesNotThrow(function () {
+        valid8.areFieldsValid({age: 123});
+      });
+
+      assert.doesNotThrow(function () {
+        valid8.areFieldsValid({age: 123}, ['age']);
+      });
+
+      assert.doesNotThrow(function () {
+        valid8.isFieldValid('age', 123);
+      });
+
+      assert.throws(function () {
+        valid8.isFieldValid();
+      }, /^Invalid field name: undefined/);
+
+      assert.throws(function () {
+        valid8.isFieldValid('foo');
+      }, /^Invalid field name: foo/);
+
+      assert.doesNotThrow(function () {
+        // assert.strictEqual(valid8.isFieldValid('age', 1), true);
+        // assert.strictEqual(valid8.isFieldValid('age', 123), true);
+        // assert.strictEqual(valid8.isFieldValid('age', 'foo'), Valid8.errors.dataType);
+      });
+
+    });
+  });
 });
