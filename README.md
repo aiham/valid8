@@ -10,7 +10,7 @@ valid8 is a Javascript data validator for use with user input from web forms, AP
 - [mocha][] (To run tests)
 
 [Node.js]: http://nodejs.org/
-[mocha]: http://visionmedia.github.io/mocha/
+[mocha]: http://mochajs.org/
 
 ## Installation
 
