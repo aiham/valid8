@@ -1,3 +1,5 @@
+**Note:** Not maintained
+
 # valid8
 
 [![NPM version](https://badge.fury.io/js/valid8.svg)](http://badge.fury.io/js/valid8) [![Travis-CI](https://travis-ci.org/aiham/valid8.svg?branch=master)](https://travis-ci.org/aiham/valid8)
